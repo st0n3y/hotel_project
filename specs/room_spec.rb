@@ -38,7 +38,11 @@ class TestGuest < MiniTest::Test
   end
 
   def test_check_out()
-
+    @room1.check_in( [ "Jeffrey Tambor" ] )
+    @room1.check_out( "Jeffrey Tambor" )
+    tested = @room1.guests_resident
+    expected = []
+    assert_equal( expected, tested )
   end
 
 end

@@ -10,12 +10,20 @@ class Room
 
   def check_in( guests )
     if @guests_resident.length == 0
-    
-    for guest in guests 
-      @guests_resident << guest
-    end
+      for guest in guests 
+        @guests_resident << guest
+      end
       else "This room is already occupied."
     end
   end
+
+  def check_out( guest )
+    if @guests_resident.length != 0
+      @guests_resident.delete( guest )
+    
+    else "This room is already unoccupied."
+    end
+  end
+
 
 end
