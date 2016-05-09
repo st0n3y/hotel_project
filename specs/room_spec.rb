@@ -8,6 +8,7 @@ class TestGuest < MiniTest::Test
   def setup()
     @room1 = Room.new( 1, 1 )
     @room2 = Room.new( 2, 1 )
+    @room3 = Room.new( 3, 2 )
   end
 
 
@@ -49,6 +50,20 @@ class TestGuest < MiniTest::Test
     @room1.check_out( "Jeffrey Tambor" )
     tested = "This room is already unoccupied."
     expected = "This room is already unoccupied."
+    assert_equal( expected, tested )
+  end
+
+  def test_check_in_multiple_guests()
+    @room3.check_in( [ "Jeffrey Tambor", "Jason Bateman" ] )
+    tested = @room3.guests_resident
+    expected = [ "Jeffrey Tambor", "Jason Bateman" ]
+    assert_equal( expected, tested )
+  end
+
+  def test_check_in_multiple_guests_fail()
+    @room2.check_in( [ "Jeffrey Tambor", "Jason Bateman" ] )
+    tested = "Not enough beds in this room."
+    expected = "Not enough beds in this room."
     assert_equal( expected, tested )
   end
 

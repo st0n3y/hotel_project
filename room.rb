@@ -13,7 +13,9 @@ class Room
       for guest in guests 
         @guests_resident << guest
       end
-      else "This room is already occupied."
+    elsif guests.length > @num_of_beds
+      "Not enough beds in this room."
+    else "This room is already occupied."
     end
   end
 
