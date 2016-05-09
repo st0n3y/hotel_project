@@ -13,7 +13,7 @@ class TestGuest < MiniTest::Test
       @room4 = Room.new( 4 )
       rooms = [ @room1, @room2, @room3, @room4 ]
       @hotel = Hotel.new( "Maple River Hotel", rooms )
-    end
+  end
 
   def test_hotel_has_name()
       tested_name = @hotel.hotel_name()

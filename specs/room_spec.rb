@@ -45,4 +45,11 @@ class TestGuest < MiniTest::Test
     assert_equal( expected, tested )
   end
 
+  def test_check_out_fail()
+    @room1.check_out( "Jeffrey Tambor" )
+    tested = "This room is already unoccupied."
+    expected = "This room is already unoccupied."
+    assert_equal( expected, tested )
+  end
+
 end
